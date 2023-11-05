@@ -3,7 +3,7 @@ import React from "react";
 import MovieCard from "../../shared/MovieCard";
 
 import { useAppDispatch } from "@/redux/hooks";
-import { MovieCarouselProps } from "./types";
+import { MovieCarouselProps } from "@/types/movie.types";
 
 const MovieCarousel = ({ label, list }: MovieCarouselProps) => {
   const dispatch = useAppDispatch();
