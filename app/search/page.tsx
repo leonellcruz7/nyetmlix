@@ -3,14 +3,11 @@ import { GetSearchedMovies } from "@/components/getters/GetMovies";
 import Layout from "@/components/layout/Layout";
 import MovieCard from "@/components/shared/MovieCard";
 import MovieModal from "@/components/shared/MovieModal";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setMovieDetails } from "@/redux/movie";
+import { useAppSelector } from "@/redux/hooks";
 import { useSearchParams } from "next/navigation";
 import React from "react";
-import { useSelector } from "react-redux";
 
-const page = () => {
-  const dispatch = useAppDispatch();
+const Search = () => {
   const { movieId, searchedMovies } = useAppSelector((state) => state.movie);
   const query = useSearchParams();
   const search = query.get("search");
@@ -38,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Search;

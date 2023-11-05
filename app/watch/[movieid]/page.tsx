@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Watch = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
   const { movieDetails, recommendedMovies, movieId } = useAppSelector(
@@ -108,4 +108,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Watch;
