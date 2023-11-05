@@ -1,5 +1,5 @@
 .container {
-  @apply fixed h-[68px] w-full px-4 flex items-center transition-all duration-500;
+  @apply fixed h-[68px] w-full px-4 flex items-center transition-all duration-500 z-50;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,

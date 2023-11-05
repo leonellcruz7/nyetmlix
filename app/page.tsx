@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import MovieModal from "@/components/shared/MovieModal";
 import { useAppSelector } from "@/redux/hooks";
 import {
+  GetFeaturedMovie,
   GetPopularMovies,
   GetTopRatedMovies,
   GetTrendingMovies,
@@ -19,6 +20,7 @@ export default function Home() {
       <GetPopularMovies />
       <GetTrendingMovies />
       <GetTopRatedMovies />
+      <GetFeaturedMovie />
       <Layout>
         <div>
           <Hero />

@@ -13,6 +13,7 @@ export type MovieStateTypes = {
   movieDetails: null | MovieDetailsTypes;
   searchedMovies: null | MovieDataTypes;
   recommendedMovies: null | MovieDataTypes;
+  featuredMovie: null | MovieDetailsTypes;
 };
 
 export type MovieTypes = {

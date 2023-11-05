@@ -20,7 +20,7 @@ const MovieModal = () => {
     <>
       <GetMovieDetails />
       <Modal handleClose={handleClose}>
-        <div className="w-[800px] h-[900px] bg-zinc-900 rounded-xl overflow-hidden flex flex-col justify-between">
+        <div className="w-[800px] h-[90vh] overflow-y-scroll hide-scroll bg-zinc-900 rounded-xl overflow-hidden flex flex-col justify-between">
           {movieDetails ? (
             <>
               <div>

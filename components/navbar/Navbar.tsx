@@ -6,6 +6,8 @@ import DetectScroll from "../helpers/DetectScroll";
 import classNames from "classnames";
 import Search from "../assets/Search";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logo from "@/public/nyetmlix.png";
 
 const Navbar = () => {
   const router = useRouter();
@@ -28,9 +30,15 @@ const Navbar = () => {
           isScrolled && styles["-isScrolled"]
         )}
       >
-        <div className="main-container flex justify-between w-full">
-          <div className="flex gap-10">
-            <p className="text-white">Nyetmlix</p>
+        <div className="main-container flex items-center justify-between w-full">
+          <div className="flex gap-10 items-center">
+            <Image
+              src={logo}
+              width={500}
+              height={200}
+              alt=""
+              className="w-[200px] flex-shrink-0"
+            />
             <DesktopMenu />
           </div>
 

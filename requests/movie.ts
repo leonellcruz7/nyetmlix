@@ -1,5 +1,6 @@
 import { api } from "@/api/api";
 import {
+  setFeaturedMovie,
   setMovieDetails,
   setPopularMovies,
   setRecommendedMovies,
@@ -13,6 +14,16 @@ export const getPopularMovies = async ({ dispatch }: any) => {
     const response = await api.get(`/movie/popular`);
     console.log(response, "popular");
     dispatch(setPopularMovies(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getFeaturedMovie = async ({ dispatch }: any) => {
+  try {
+    const response = await api.get(`/movie/968051`);
+    console.log(response, "featured");
+    dispatch(setFeaturedMovie(response.data));
   } catch (err) {
     console.log(err);
   }

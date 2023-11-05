@@ -9,6 +9,7 @@ const initialState: MovieStateTypes = {
   movieDetails: null,
   searchedMovies: null,
   recommendedMovies: null,
+  featuredMovie: null,
 };
 
 export const movieSlice = createSlice({
@@ -36,6 +37,9 @@ export const movieSlice = createSlice({
     setRecommendedMovies: (state, action) => {
       state.recommendedMovies = action.payload;
     },
+    setFeaturedMovie: (state, action) => {
+      state.featuredMovie = action.payload;
+    },
   },
 });
 
@@ -47,5 +51,6 @@ export const {
   setMovieDetails,
   setSearchedMovies,
   setRecommendedMovies,
+  setFeaturedMovie,
 } = movieSlice.actions;
 export default movieSlice.reducer;

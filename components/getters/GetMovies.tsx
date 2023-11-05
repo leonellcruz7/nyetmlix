@@ -2,6 +2,7 @@
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setMovieDetails } from "@/redux/movie";
 import {
+  getFeaturedMovie,
   getMovieDetails,
   getMovieProviders,
   getMovieRecommendations,
@@ -19,6 +20,16 @@ export const GetPopularMovies = () => {
   useEffect(() => {
     if (!popular) {
       getPopularMovies({ dispatch });
+    }
+  }, []);
+  return null;
+};
+export const GetFeaturedMovie = () => {
+  const dispatch = useAppDispatch();
+  const { featuredMovie } = useAppSelector((state) => state.movie);
+  useEffect(() => {
+    if (!featuredMovie) {
+      getFeaturedMovie({ dispatch });
     }
   }, []);
   return null;
