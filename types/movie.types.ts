@@ -6,13 +6,13 @@ export type MovieDataTypes = {
 };
 
 export type MovieStateTypes = {
-  movieId: number;
-  popular: MovieDataTypes;
-  trending: MovieDataTypes;
-  topRated: MovieDataTypes;
-  movieDetails: MovieDetailsTypes;
-  searchedMovies: MovieDataTypes;
-  recommendedMovies: MovieDataTypes;
+  movieId: null | number;
+  popular: null | MovieDataTypes;
+  trending: null | MovieDataTypes;
+  topRated: null | MovieDataTypes;
+  movieDetails: null | MovieDetailsTypes;
+  searchedMovies: null | MovieDataTypes;
+  recommendedMovies: null | MovieDataTypes;
   featuredMovie: MovieDetailsTypes;
 };
 
