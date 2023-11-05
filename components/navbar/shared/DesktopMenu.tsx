@@ -7,14 +7,14 @@ const DesktopMenu = () => {
       label: "Home",
       link: "/",
     },
-    {
-      label: "TV Shows",
-      link: "#",
-    },
-    {
-      label: "Movies",
-      link: "#",
-    },
+    // {
+    //   label: "TV Shows",
+    //   link: "#",
+    // },
+    // {
+    //   label: "Movies",
+    //   link: "#",
+    // },
   ];
   return (
     <div>
