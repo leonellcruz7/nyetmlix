@@ -12,8 +12,8 @@ export type MovieStateTypes = {
   topRated: null | MovieDataTypes;
   movieDetails: null | MovieDetailsTypes;
   searchedMovies: null | MovieDataTypes;
+  featuredMovie: null | MovieDetailsTypes;
   recommendedMovies: null | MovieDataTypes;
-  featuredMovie: MovieDetailsTypes;
 };
 
 export type MovieTypes = {
