@@ -2,26 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  @apply bg-zinc-900 text-white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+.main-container {
+  @apply px-4 md:px-10;
+}
+
+.label {
+  @apply text-3xl font-semibold text-white;
+}
+
+.button {
+  @apply py-2 text-xl rounded-sm font-semibold px-8 transition-all;
+  &.white {
+    @apply bg-white text-black;
+  }
+  &.grey {
+    @apply bg-black bg-opacity-25 text-white;
+  }
+  &:hover {
+    @apply brightness-75;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.input {
+  @apply h-10 w-full bg-transparent outline-none text-white px-4;
+  border: 1px solid #fff;
+  &.search {
+    @apply pr-8;
+  }
 }
