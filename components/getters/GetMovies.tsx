@@ -40,9 +40,7 @@ export const GetFeaturedMovie = () => {
   const { featuredMovie } = useAppSelector((state) => state.movie);
   useEffect(() => {
     dispatch(setFeaturedMovie(null));
-    if (!featuredMovie) {
-      getFeaturedMovie({ dispatch });
-    }
+    getFeaturedMovie({ dispatch });
   }, []);
   return null;
 };
