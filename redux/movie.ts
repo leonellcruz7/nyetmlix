@@ -10,6 +10,7 @@ const initialState: MovieStateTypes = {
   searchedMovies: null,
   recommendedMovies: null,
   featuredMovie: null,
+  popularTvSeries: null,
 };
 
 export const movieSlice = createSlice({
@@ -40,6 +41,9 @@ export const movieSlice = createSlice({
     setFeaturedMovie: (state, action) => {
       state.featuredMovie = action.payload;
     },
+    setPopularTvSeries: (state, action) => {
+      state.popularTvSeries = action.payload;
+    },
   },
 });
 
@@ -52,5 +56,6 @@ export const {
   setSearchedMovies,
   setRecommendedMovies,
   setFeaturedMovie,
+  setPopularTvSeries,
 } = movieSlice.actions;
 export default movieSlice.reducer;

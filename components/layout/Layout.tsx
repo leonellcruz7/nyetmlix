@@ -4,7 +4,7 @@ import { LayoutProps } from "./types";
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="relative">
+    <div className="relative min-w-[1280px] pb-20">
       <Navbar />
       <div className="">{children}</div>
     </div>

@@ -24,7 +24,7 @@ const Hero = () => {
           <p className="font-bold text-6xl text-white">
             {featuredMovie?.title}
           </p>
-          <p className="xl:max-w-[35%] text-white text-xl">
+          <p className="max-w-[35%] text-white text-xl">
             {featuredMovie?.overview}
           </p>
           <div className="flex gap-4">

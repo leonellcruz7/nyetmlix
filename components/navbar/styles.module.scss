@@ -1,5 +1,7 @@
 .container {
-  @apply fixed h-[68px] w-full px-4 flex items-center transition-all duration-500 z-50;
+  @apply fixed w-full px-4 flex items-center transition-all duration-500 overflow-scroll z-50;
+  height: 68px;
+  min-width: 1280px;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,

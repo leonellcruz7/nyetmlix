@@ -32,6 +32,9 @@ const Watch = () => {
       <Layout>
         <div>
           <iframe
+            referrerPolicy="same-origin"
+            // sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            // seamless
             allowFullScreen
             src={process.env.NEXT_PUBLIC_STREAM_URL + `?tmdb=${params.movieid}`}
             className="w-full h-[90vh]"

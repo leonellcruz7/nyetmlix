@@ -28,6 +28,12 @@ body {
   &:hover {
     @apply brightness-75;
   }
+  &:disabled {
+    @apply bg-gray-300 bg-opacity-25 opacity-30 text-gray-300;
+    &:hover {
+      @apply brightness-100;
+    }
+  }
 }
 
 .input {

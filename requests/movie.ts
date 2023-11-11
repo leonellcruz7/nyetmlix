@@ -3,15 +3,21 @@ import {
   setFeaturedMovie,
   setMovieDetails,
   setPopularMovies,
+  setPopularTvSeries,
   setRecommendedMovies,
   setSearchedMovies,
   setTopRatedMovies,
   setTrendingMovies,
 } from "@/redux/movie";
 
-export const getPopularMovies = async ({ dispatch }: any) => {
+export const getPopularMovies = async ({ dispatch, page }: any) => {
+  const params = {
+    page: page,
+  };
   try {
-    const response = await api.get(`/movie/popular`);
+    const response = await api.get(`/movie/popular`, {
+      params: params,
+    });
     console.log(response, "popular");
     dispatch(setPopularMovies(response.data));
   } catch (err) {
@@ -29,9 +35,14 @@ export const getFeaturedMovie = async ({ dispatch }: any) => {
   }
 };
 
-export const getTrendingMovies = async ({ dispatch }: any) => {
+export const getTrendingMovies = async ({ dispatch, page }: any) => {
+  const params = {
+    page: page,
+  };
   try {
-    const response = await api.get(`/trending/movie/day`);
+    const response = await api.get(`/trending/movie/day`, {
+      params: params,
+    });
     console.log(response, "trending");
     dispatch(setTrendingMovies(response.data));
   } catch (err) {
@@ -39,9 +50,29 @@ export const getTrendingMovies = async ({ dispatch }: any) => {
   }
 };
 
-export const getTopRatedMovies = async ({ dispatch }: any) => {
+export const getPopularTvSeries = async ({ dispatch, page }: any) => {
+  const params = {
+    page: page,
+  };
   try {
-    const response = await api.get(`/movie/top_rated`);
+    const response = await api.get(`/tv/popular`, {
+      params: params,
+    });
+    console.log(response, "popular tv series");
+    dispatch(setPopularTvSeries(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getTopRatedMovies = async ({ dispatch, page }: any) => {
+  const params = {
+    page: page,
+  };
+  try {
+    const response = await api.get(`/movie/top_rated`, {
+      params: params,
+    });
     console.log(response, "trending");
     dispatch(setTopRatedMovies(response.data));
   } catch (err) {

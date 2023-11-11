@@ -44,8 +44,10 @@ const MovieCard = ({ large, data, poster }: MovieCardProps) => {
           }
         />
       </div>
-      {data?.title && (
-        <p className="text-white font-semibold text-xl">{data?.title}</p>
+      {(data?.title || data?.name) && (
+        <p className="text-white font-semibold text-xl">
+          {data?.title || data?.name}
+        </p>
       )}
     </div>
   );

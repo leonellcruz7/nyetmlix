@@ -14,6 +14,7 @@ export type MovieStateTypes = {
   searchedMovies: null | MovieDataTypes;
   featuredMovie: null | MovieDetailsTypes;
   recommendedMovies: null | MovieDataTypes;
+  popularTvSeries: null | MovieDataTypes;
 };
 
 export type MovieTypes = {
@@ -28,6 +29,7 @@ export type MovieTypes = {
   poster_path: string;
   release_date: string;
   title: string;
+  name: string;
   video: boolean;
   vote_average: number;
   vote_count: number;
@@ -61,4 +63,5 @@ export type MovieDetailsTypes = {
 export type MovieCarouselProps = {
   label: string;
   list?: MovieTypes[];
+  viewAllLink: string;
 };

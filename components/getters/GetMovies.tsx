@@ -1,8 +1,16 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setMovieDetails } from "@/redux/movie";
+import {
+  setFeaturedMovie,
+  setMovieDetails,
+  setPopularMovies,
+  setPopularTvSeries,
+  setTopRatedMovies,
+  setTrendingMovies,
+} from "@/redux/movie";
 import {
   getFeaturedMovie,
+  getPopularTvSeries,
   getMovieDetails,
   getMovieProviders,
   getMovieRecommendations,
@@ -11,23 +19,27 @@ import {
   getTrendingMovies,
   searchMovies,
 } from "@/requests/movie";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 
 export const GetPopularMovies = () => {
   const dispatch = useAppDispatch();
+  const params = useSearchParams();
+  const page = params.get("page");
   const { popular } = useAppSelector((state) => state.movie);
   useEffect(() => {
-    if (!popular) {
-      getPopularMovies({ dispatch });
+    if (!popular || popular.page.toString() !== page) {
+      dispatch(setPopularMovies(null));
+      getPopularMovies({ dispatch, page });
     }
-  }, []);
+  }, [page]);
   return null;
 };
 export const GetFeaturedMovie = () => {
   const dispatch = useAppDispatch();
   const { featuredMovie } = useAppSelector((state) => state.movie);
   useEffect(() => {
+    dispatch(setFeaturedMovie(null));
     if (!featuredMovie) {
       getFeaturedMovie({ dispatch });
     }
@@ -37,23 +49,43 @@ export const GetFeaturedMovie = () => {
 
 export const GetTrendingMovies = () => {
   const dispatch = useAppDispatch();
+  const params = useSearchParams();
+  const page = params.get("page");
   const { trending } = useAppSelector((state) => state.movie);
   useEffect(() => {
-    if (!trending) {
-      getTrendingMovies({ dispatch });
+    if (!trending || trending.page.toString() !== page) {
+      dispatch(setTrendingMovies(null));
+      getTrendingMovies({ dispatch, page });
     }
-  }, []);
+  }, [page]);
+  return null;
+};
+
+export const GetPopularTvSeries = () => {
+  const dispatch = useAppDispatch();
+  const params = useSearchParams();
+  const page = params.get("page");
+  const { popularTvSeries } = useAppSelector((state) => state.movie);
+  useEffect(() => {
+    if (!popularTvSeries || popularTvSeries.page.toString() !== page) {
+      dispatch(setPopularTvSeries(null));
+      getPopularTvSeries({ dispatch, page });
+    }
+  }, [page]);
   return null;
 };
 
 export const GetTopRatedMovies = () => {
   const dispatch = useAppDispatch();
-  const { trending } = useAppSelector((state) => state.movie);
+  const params = useSearchParams();
+  const page = params.get("page");
+  const { topRated } = useAppSelector((state) => state.movie);
   useEffect(() => {
-    if (!trending) {
-      getTopRatedMovies({ dispatch });
+    if (!topRated || topRated.page.toString() !== page) {
+      dispatch(setTopRatedMovies(null));
+      getTopRatedMovies({ dispatch, page });
     }
-  }, []);
+  }, [page]);
   return null;
 };
 
