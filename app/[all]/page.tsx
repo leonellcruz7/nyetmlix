@@ -13,8 +13,8 @@ import { replaceHyphenWithSpace } from "@/utils/helpers";
 import { useParams } from "next/navigation";
 import React from "react";
 
-const page = () => {
-  const params: { all: string } = useParams();
+const All = () => {
+  const params = useParams();
   const type = params.all;
 
   return (
@@ -27,9 +27,7 @@ const page = () => {
       <Layout>
         <div className="pt-32 main-container flex flex-col gap-12">
           <div className="flex justify-between items-end">
-            <p className="capitalize text-4xl text-white font-bold">
-              {replaceHyphenWithSpace(type)}
-            </p>
+            <p className="capitalize text-4xl text-white font-bold">{type}</p>
             <Pagination />
           </div>
           <AllList />
@@ -39,4 +37,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default All;
