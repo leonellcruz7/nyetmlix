@@ -58,11 +58,11 @@ export default function Home() {
                 list={topRated?.results}
                 label="Top Rated"
               />
-              <MovieCarousel
+              {/* <MovieCarousel
                 viewAllLink="popular-series"
                 list={popularTvSeries?.results}
                 label="Popular TV Series"
-              />
+              /> */}
             </div>
           </motion.div>
         )}
