@@ -18,6 +18,7 @@ import React, { useEffect, useState } from "react";
 
 const Watch = () => {
   const dispatch = useAppDispatch();
+  const [details, setDetails] = useState<MovieDetailsTypes | null>(null);
   const params = useParams();
   const { recommendedMovies, movieId, movieDetails } = useAppSelector(
     (state) => state.movie
@@ -25,6 +26,11 @@ const Watch = () => {
   const keys = movieDetails && Object.keys(movieDetails);
   const isTv = keys?.includes("seasons");
 
+  useEffect(() => {
+    if (!details) {
+      setDetails(movieDetails);
+    }
+  }, [details, movieDetails]);
   return (
     <>
       <GetMovieDetails />
@@ -49,7 +55,7 @@ const Watch = () => {
               className="w-full h-[90vh]"
             ></iframe>
           )}
-          {movieDetails ? (
+          {details ? (
             <>
               <div className="main-container py-10 flex justify-between">
                 <div className="flex gap-10">
@@ -59,28 +65,25 @@ const Watch = () => {
                       height={400}
                       alt=""
                       src={
-                        process.env.NEXT_PUBLIC_IMAGE_URL +
-                        movieDetails?.poster_path
+                        process.env.NEXT_PUBLIC_IMAGE_URL + details?.poster_path
                       }
                     />
                   </div>
                   <div className="flex flex-col gap-4">
-                    <p className="text-4xl font-semibold">
-                      {movieDetails?.title}
-                    </p>
-                    <p className="max-w-[800px]">{movieDetails?.overview}</p>
+                    <p className="text-4xl font-semibold">{details?.title}</p>
+                    <p className="max-w-[800px]">{details?.overview}</p>
                     <div>
                       <div className="flex gap-2">
                         <p className="font-bold">Release Date:</p>
                         <p>
-                          {movieDetails?.release_date &&
-                            formatDate(movieDetails?.release_date)}
+                          {details?.release_date &&
+                            formatDate(details?.release_date)}
                         </p>
                       </div>
                       <div className="flex gap-2">
                         <p className="font-bold">Genres:</p>
                         <div className="flex gap-2">
-                          {movieDetails?.genres?.map((item, index) => {
+                          {details?.genres?.map((item, index) => {
                             return <p key={index}>{item.name}</p>;
                           })}
                         </div>

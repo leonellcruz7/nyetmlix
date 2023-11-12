@@ -87,8 +87,10 @@ export const getMovieDetails = async ({ dispatch, id, viewType }: any) => {
     const response = await api.get(`/${viewType || "movie"}/${id}`);
     console.log(response, "movie details");
     dispatch(setMovieDetails(response.data));
+    return response.data;
   } catch (err) {
     console.log(err);
+    return err;
   }
 };
 
