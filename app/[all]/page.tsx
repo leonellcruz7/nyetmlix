@@ -1,7 +1,6 @@
 "use client";
 import AllList from "@/components/all/AllList";
 import {
-  GetFeaturedMovie,
   GetPopularMovies,
   GetPopularTvSeries,
   GetTopRatedMovies,
@@ -9,21 +8,21 @@ import {
 } from "@/components/getters/GetMovies";
 import Layout from "@/components/layout/Layout";
 import Pagination from "@/components/pagination/Pagination";
-import { replaceHyphenWithSpace } from "@/utils/helpers";
 import { useParams } from "next/navigation";
 import React from "react";
 
 const All = () => {
-  const params = useParams();
+  const params: { all: string } = useParams();
   const type = params.all;
-
+  const types: any = {
+    "popular-movies": <GetPopularMovies />,
+    "trending-movies": <GetTrendingMovies />,
+    "top-rated-movies": <GetTopRatedMovies />,
+    "popular-series": <GetPopularTvSeries />,
+  };
   return (
     <>
-      <GetPopularMovies />
-      <GetTrendingMovies />
-      <GetTopRatedMovies />
-      <GetFeaturedMovie />
-      <GetPopularTvSeries />
+      {types[type]}
       <Layout>
         <div className="pt-32 main-container flex flex-col gap-12">
           <div className="flex justify-between items-end">
