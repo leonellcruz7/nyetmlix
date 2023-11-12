@@ -59,6 +59,7 @@ export type MovieDetailsTypes = {
   release_date: string;
   tagline: string;
   title: string;
+  name: string;
   vote_average: number;
   vote_count: number;
 };

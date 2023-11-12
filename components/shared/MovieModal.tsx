@@ -38,7 +38,7 @@ const MovieModal = () => {
                 </div>
                 <div className="p-6 flex flex-col gap-2">
                   <p className="font-bold text-white text-3xl">
-                    {movieDetails?.title}
+                    {movieDetails?.title || movieDetails?.name}
                   </p>
                   <p className="text-slate-500">{movieDetails?.overview}</p>
                   <div className="flex gap-2 items-start">

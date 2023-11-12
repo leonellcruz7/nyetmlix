@@ -10,22 +10,20 @@ import MovieCard from "@/components/shared/MovieCard";
 import MovieModal from "@/components/shared/MovieModal";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setMovieDetails, setMovieId } from "@/redux/movie";
+import { MovieDetailsTypes } from "@/types/movie.types";
 import { formatDate } from "@/utils/helpers";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Watch = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
-  const { movieDetails, recommendedMovies, movieId } = useAppSelector(
+  const { recommendedMovies, movieId, movieDetails } = useAppSelector(
     (state) => state.movie
   );
   const keys = movieDetails && Object.keys(movieDetails);
   const isTv = keys?.includes("seasons");
-  const handleSelect = () => {
-    dispatch(setMovieDetails(true));
-  };
 
   return (
     <>
@@ -106,7 +104,14 @@ const Watch = () => {
                   {recommendedMovies?.results
                     ?.filter((item) => item.poster_path !== null)
                     .map((item, index) => {
-                      return <MovieCard key={index} poster data={item} />;
+                      return (
+                        <MovieCard
+                          type="movie"
+                          key={index}
+                          poster
+                          data={item}
+                        />
+                      );
                     })}
                 </div>
               </div>

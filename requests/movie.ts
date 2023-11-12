@@ -84,18 +84,11 @@ export const getTopRatedMovies = async ({ dispatch, page }: any) => {
 
 export const getMovieDetails = async ({ dispatch, id, viewType }: any) => {
   try {
-    const response = await api.get(`/${viewType}/${id}`);
+    const response = await api.get(`/${viewType || "movie"}/${id}`);
     console.log(response, "movie details");
     dispatch(setMovieDetails(response.data));
   } catch (err) {
     console.log(err);
-    try {
-      const response = await api.get(`/tv/${id}`);
-      console.log(response, "movie details");
-      dispatch(setMovieDetails(response.data));
-    } catch (err) {
-      console.log(err);
-    }
   }
 };
 
@@ -107,9 +100,11 @@ export const searchMovies = async ({ dispatch, search }: any) => {
     console.log(response2, "searched series");
     dispatch(setSearchedMovies(response.data));
     dispatch(setSearchedSeries(response2.data));
-    dispatch(
-      setSearchList([...response.data.results, ...response2.data.results])
-    );
+    // dispatch(
+    //   setSearchList([...response.data.results, ...response2.data.results])
+    // );
+
+    dispatch(setSearchList([...response.data.results]));
   } catch (err) {
     console.log(err);
   }
