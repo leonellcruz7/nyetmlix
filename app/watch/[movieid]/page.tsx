@@ -21,6 +21,8 @@ const Watch = () => {
   const { movieDetails, recommendedMovies, movieId } = useAppSelector(
     (state) => state.movie
   );
+  const keys = movieDetails && Object.keys(movieDetails);
+  const isTv = keys?.includes("seasons");
   const handleSelect = () => {
     dispatch(setMovieDetails(true));
   };
@@ -31,14 +33,24 @@ const Watch = () => {
       <GetRecommendedMovies />
       <Layout>
         <div>
-          <iframe
-            referrerPolicy="same-origin"
-            // sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-            // seamless
-            allowFullScreen
-            src={process.env.NEXT_PUBLIC_STREAM_URL + `?tmdb=${params.movieid}`}
-            className="w-full h-[90vh]"
-          ></iframe>
+          {isTv ? (
+            <iframe
+              allowFullScreen
+              src={
+                process.env.NEXT_PUBLIC_STREAM_URL_TV +
+                `?tmdb=${params.movieid}`
+              }
+              className="w-full h-[90vh]"
+            ></iframe>
+          ) : (
+            <iframe
+              allowFullScreen
+              src={
+                process.env.NEXT_PUBLIC_STREAM_URL + `?tmdb=${params.movieid}`
+              }
+              className="w-full h-[90vh]"
+            ></iframe>
+          )}
           {movieDetails ? (
             <>
               <div className="main-container py-10 flex justify-between">

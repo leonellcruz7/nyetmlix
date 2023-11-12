@@ -8,9 +8,12 @@ const initialState: MovieStateTypes = {
   topRated: null,
   movieDetails: null,
   searchedMovies: null,
+  searchedSeries: null,
+  searchList: [],
   recommendedMovies: null,
   featuredMovie: null,
   popularTvSeries: null,
+  viewType: null,
 };
 
 export const movieSlice = createSlice({
@@ -35,6 +38,12 @@ export const movieSlice = createSlice({
     setSearchedMovies: (state, action) => {
       state.searchedMovies = action.payload;
     },
+    setSearchedSeries: (state, action) => {
+      state.searchedSeries = action.payload;
+    },
+    setSearchList: (state, action) => {
+      state.searchList = action.payload;
+    },
     setRecommendedMovies: (state, action) => {
       state.recommendedMovies = action.payload;
     },
@@ -43,6 +52,9 @@ export const movieSlice = createSlice({
     },
     setPopularTvSeries: (state, action) => {
       state.popularTvSeries = action.payload;
+    },
+    setViewType: (state, action) => {
+      state.viewType = action.payload;
     },
   },
 });
@@ -54,8 +66,11 @@ export const {
   setTopRatedMovies,
   setMovieDetails,
   setSearchedMovies,
+  setSearchedSeries,
+  setSearchList,
   setRecommendedMovies,
   setFeaturedMovie,
   setPopularTvSeries,
+  setViewType,
 } = movieSlice.actions;
 export default movieSlice.reducer;

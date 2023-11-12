@@ -12,20 +12,27 @@ const AllList = () => {
     useAppSelector((state) => state.movie);
 
   const types: any = {
-    "popular-movies": popular,
-    "trending-movies": trending,
-    "top-rated-movies": topRated,
-    "popular-series": popularTvSeries,
+    "popular-movies": { list: popular, type: "movie" },
+    "trending-movies": { list: trending, type: "movie" },
+    "top-rated-movies": { list: topRated, type: "movie" },
+    "popular-series": { list: popularTvSeries, type: "tv" },
   };
 
   return (
     <>
       <div>
         <div className="flex flex-wrap gap-10">
-          {types[type]?.results
+          {types[type]?.list?.results
             .filter((res: MovieTypes) => res.backdrop_path)
             .map((item: MovieTypes, index: number) => {
-              return <MovieCard key={index} data={item} large />;
+              return (
+                <MovieCard
+                  type={types[type].type}
+                  key={index}
+                  data={item}
+                  large
+                />
+              );
             })}
         </div>
       </div>

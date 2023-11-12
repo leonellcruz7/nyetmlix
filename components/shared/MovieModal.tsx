@@ -2,7 +2,7 @@
 import React from "react";
 import Modal from "../assets/modal/Modal";
 import { useDispatch } from "react-redux";
-import { setMovieId } from "@/redux/movie";
+import { setMovieId, setViewType } from "@/redux/movie";
 import Link from "next/link";
 import { GetMovieDetails } from "../getters/GetMovies";
 import { useAppSelector } from "@/redux/hooks";
@@ -11,10 +11,11 @@ import Loader from "../assets/Loader";
 
 const MovieModal = () => {
   const dispatch = useDispatch();
-  const { movieDetails } = useAppSelector((state) => state.movie);
+  const { movieDetails, viewType } = useAppSelector((state) => state.movie);
 
   const handleClose = () => {
     dispatch(setMovieId(null));
+    dispatch(setViewType(null));
   };
   return (
     <>

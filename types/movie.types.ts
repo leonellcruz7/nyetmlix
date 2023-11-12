@@ -12,9 +12,12 @@ export type MovieStateTypes = {
   topRated: null | MovieDataTypes;
   movieDetails: null | MovieDetailsTypes;
   searchedMovies: null | MovieDataTypes;
+  searchedSeries: null | MovieDataTypes;
+  searchList: MovieTypes[];
   featuredMovie: null | MovieDetailsTypes;
   recommendedMovies: null | MovieDataTypes;
   popularTvSeries: null | MovieDataTypes;
+  viewType: null | string;
 };
 
 export type MovieTypes = {
@@ -64,4 +67,5 @@ export type MovieCarouselProps = {
   label: string;
   list?: MovieTypes[];
   viewAllLink: string;
+  type: "movie" | "tv";
 };

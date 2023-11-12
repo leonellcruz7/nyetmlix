@@ -6,9 +6,12 @@ import { useAppDispatch } from "@/redux/hooks";
 import { MovieCarouselProps } from "@/types/movie.types";
 import Link from "next/link";
 
-const MovieCarousel = ({ label, list, viewAllLink }: MovieCarouselProps) => {
-  const dispatch = useAppDispatch();
-
+const MovieCarousel = ({
+  label,
+  list,
+  viewAllLink,
+  type,
+}: MovieCarouselProps) => {
   return (
     <div className="pl-4 md:pl-10">
       <div className="relative flex flex-col gap-2">
@@ -20,7 +23,7 @@ const MovieCarousel = ({ label, list, viewAllLink }: MovieCarouselProps) => {
         </div>
         <div className="flex gap-2 overflow-x-scroll hide-scroll snap-x p-4">
           {list?.map((item, index) => {
-            return <MovieCard data={item} key={index} />;
+            return <MovieCard type={type} data={item} key={index} />;
           })}
         </div>
       </div>

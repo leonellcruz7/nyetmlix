@@ -47,22 +47,26 @@ export default function Home() {
                 viewAllLink="/popular-movies"
                 list={popular?.results}
                 label="Popular on Nyetmlix"
+                type="movie"
               />
               <MovieCarousel
                 viewAllLink="/trending-movies"
                 list={trending?.results}
                 label="Trending Now"
+                type="movie"
               />
               <MovieCarousel
                 viewAllLink="/top-rated-movies"
                 list={topRated?.results}
                 label="Top Rated"
+                type="movie"
               />
-              {/* <MovieCarousel
+              <MovieCarousel
                 viewAllLink="popular-series"
                 list={popularTvSeries?.results}
                 label="Popular TV Series"
-              /> */}
+                type="tv"
+              />
             </div>
           </motion.div>
         )}

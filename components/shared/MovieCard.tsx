@@ -4,18 +4,20 @@ import classNames from "classnames";
 import React from "react";
 import Image from "next/image";
 import { useAppDispatch } from "@/redux/hooks";
-import { setMovieId } from "@/redux/movie";
+import { setMovieId, setViewType } from "@/redux/movie";
 import { MovieTypes } from "@/types/movie.types";
 type MovieCardProps = {
   large?: boolean;
   data: MovieTypes;
   poster?: boolean;
+  type?: string;
 };
 
-const MovieCard = ({ large, data, poster }: MovieCardProps) => {
+const MovieCard = ({ large, data, poster, type }: MovieCardProps) => {
   const dispatch = useAppDispatch();
   const handleSelect = () => {
     dispatch(setMovieId(data?.id));
+    dispatch(setViewType(type));
   };
   return (
     <div

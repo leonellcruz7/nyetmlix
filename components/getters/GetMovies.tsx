@@ -102,12 +102,14 @@ export const GetRecommendedMovies = () => {
 export const GetMovieDetails = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
-  const { movieId, movieDetails } = useAppSelector((state) => state.movie);
+  const { movieId, movieDetails, viewType } = useAppSelector(
+    (state) => state.movie
+  );
   const id = movieId || params.movieid;
   useEffect(() => {
     dispatch(setMovieDetails(null));
     if (id) {
-      getMovieDetails({ dispatch, id: id });
+      getMovieDetails({ dispatch, id: id, viewType });
     }
   }, [id]);
   return null;
