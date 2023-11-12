@@ -24,7 +24,7 @@ const Search = () => {
               {searchList
                 ?.filter((res) => res.backdrop_path)
                 .map((item, index) => {
-                  return <MovieCard key={index} data={item} large />;
+                  return <MovieCard poster key={index} data={item} large />;
                 })}
             </div>
           </div>

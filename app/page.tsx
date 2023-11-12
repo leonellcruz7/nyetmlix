@@ -44,17 +44,18 @@ export default function Home() {
             <Hero />
             <div className="flex flex-col gap-10 translate-y-[-100px]">
               <MovieCarousel
-                viewAllLink="/popular-movies"
-                list={popular?.results}
-                label="Popular on Nyetmlix"
-                type="movie"
-              />
-              <MovieCarousel
                 viewAllLink="/trending-movies"
                 list={trending?.results}
                 label="Trending Now"
                 type="movie"
               />
+              <MovieCarousel
+                viewAllLink="/popular-movies"
+                list={popular?.results}
+                label="Popular on Nyetmlix"
+                type="movie"
+              />
+
               <MovieCarousel
                 viewAllLink="/top-rated-movies"
                 list={topRated?.results}

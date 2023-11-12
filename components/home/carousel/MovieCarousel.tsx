@@ -23,7 +23,7 @@ const MovieCarousel = ({
         </div>
         <div className="flex gap-2 overflow-x-scroll hide-scroll snap-x p-4">
           {list?.map((item, index) => {
-            return <MovieCard type={type} data={item} key={index} />;
+            return <MovieCard poster type={type} data={item} key={index} />;
           })}
         </div>
       </div>

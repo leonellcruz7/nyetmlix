@@ -27,6 +27,7 @@ const AllList = () => {
             .map((item: MovieTypes, index: number) => {
               return (
                 <MovieCard
+                  poster
                   type={types[type].type}
                   key={index}
                   data={item}

@@ -32,7 +32,7 @@ const MovieCard = ({ large, data, poster, type }: MovieCardProps) => {
         className={classNames(
           "flex overflow-hidden rounded-md w-[260px] h-[155px] snap-start cursor-pointer items-center justify-center",
           large && "w-[350px] h-[230px]",
-          poster && "w-[300px] h-[400px]"
+          poster && "w-[300px] h-[450px]"
         )}
       >
         <Image
@@ -46,11 +46,11 @@ const MovieCard = ({ large, data, poster, type }: MovieCardProps) => {
           }
         />
       </div>
-      {(data?.title || data?.name) && (
+      {/* {(data?.title || data?.name) && (
         <p className="text-white font-semibold text-xl">
           {data?.title || data?.name}
         </p>
-      )}
+      )} */}
     </div>
   );
 };
